@@ -1,0 +1,63 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[left=25mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em} 
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\large University of Primorska\par}
+    \vspace{0.2cm}
+    {\large Faculty of Mathematics, Natural Sciences and Information Technologies\par}
+
+    \vspace{4cm}
+
+    {\Huge \bfseries Overboard Code Cracker\par}
+
+    \vspace{4.5cm}
+
+    \begin{flushright}
+        {\large Authors: Sergei Savinkov, Artem Nesterov, Ivan Mikhailov\par
+        Course: Programsko inženirstvo EN\par
+        Group: 01\par}
+    \end{flushright}
+
+    \vfill
+
+    {\large Koper, 2026\par}
+
+\end{titlepage}
+
+%Homework 1
+\section{Problem definition}
+\subsection{Problem}
+Two elderly friends now live in different cities but they have a long tradition of playing logic-based Code Cracker games remotely.
+They set up video cameras over their game boards to track each others attempts.
+However, due to the cognitive load of managing intermediate guessing rows, 
+tracking historical turn sequences and manually computing exact feedback for each row, 
+they frequently lose count, misplace pegs or make calculation errors.
+This leads to confusion, mutual accusations of cheating and ultimately undermines their desire to continue playing together.
+
+\subsection{Proposed solution}
+A software system that connects two physical Code Cracker boards located in different cities. Each player uses a camera positioned above their board. 
+Computer vision identifies the placement of coloured pegs and detects when a new guess has been completed. 
+When a player places new pegs the system detects this, converts everything into a digital representation and transmits it to the other participant in order to set the new game state. 
+The receiving application then compares the expected game state with the board state detected by its own camera.
+
+This allows both physical boards to be tracked in the same digital game history. 
+If a board does not reflect the expected state or if the feedback pegs violate the rules of code cracker the system alerts both players and allows them to review the inconsistency. 
+Players continue using their physical boards, while the software coordinates the game state between their.
+
+\subsection{Requirements the solution must meet}
+\begin{itemize}
+    \item The system must support two players playing Code Cracker remotely using separate physical boards and cameras.
+    \item The system must use computer vision to recognize coloured pegs and completed guesses on each board.
+    \item The system must update a shared digital game state with recognized guesses, which maintains the shared game history and synchronizes updates between both players.
+    \item The system must compare each physical board with its expected digital state and detect misplaced, missing or unexpected pegs.
+    \item The system must recognize the two types of feedback pegs and verify that they are consistent with the rules of Code Cracker.
+    \item The system must notify both players of inconsistencies and allow them to review previous guesses and correct recognition errors.
+\end{itemize}
+
+\end{document}
